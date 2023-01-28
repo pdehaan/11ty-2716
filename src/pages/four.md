@@ -1,6 +1,6 @@
 ---
 title: FoUr!!
-date: git Last Modified
+# date: git Last Modified
 publishedDate: 2022-04-24
 ---
 
