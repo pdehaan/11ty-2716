@@ -1,6 +1,6 @@
 ---
 title: SiX
-date: Last Modified
+date: git Last Modified
 publishedDate: 2016-06-26
 ---
 

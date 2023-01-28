@@ -1,6 +1,6 @@
 ---
 title: ThReE
-date: Last Modified
+date: git Last Modified
 publishedDate: 2023-03-23
 ---
 
