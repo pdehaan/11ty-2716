@@ -1,12 +1,14 @@
 ---
-title: PaGeS by page.date (LiquidJS Edition)
+title: PaGeS by page.date (Nunjucks Edition)
+pagination:
+  data: collections.pages_by_page_date
+  size: 2
+  alias: pages
 ---
 
 <h1>{{ title }}</h1>
 
-{%- assign pages_by_page_date = collections.pages | sort: "data.page.date" -%}
-
-{% for p in pages_by_page_date reversed %}
+{% for p in pages %}
 <article>
   <h2>{{ p.data.title }}</h2>
   <p>page date: {% time p.data.page.date %}</p>

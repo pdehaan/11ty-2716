@@ -3,12 +3,17 @@
  * @returns {ReturnType<import("@11ty/eleventy/src/defaultConfig")>}
  */
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addCollection("huh", function (collectionApi) {
-    const pages = collectionApi.getFilteredByGlob("src/pages/*.md");
-    return [...pages];
+  eleventyConfig.addCollection("pages_by_page_date", function (collectionApi) {
+    const pages = collectionApi.getFilteredByTag("pages");
+    return [...pages].sort((a, b) => b.data.page.date - a.data.page.date);
   });
 
-  eleventyConfig.addFilter("inspect", require("node:util").inspect);
+  eleventyConfig.addCollection("pages_by_published_date", function (collectionApi) {
+    const pages = collectionApi.getFilteredByTag("pages");
+    return [...pages].sort((a, b) => b.data.publishedDate - a.data.publishedDate);
+  });
+
+  // eleventyConfig.addFilter("inspect", require("node:util").inspect);
   eleventyConfig.addFilter("iso_date", date => date.toISOString());
 
   eleventyConfig.addShortcode("time", function (datetime = new Date()) {
