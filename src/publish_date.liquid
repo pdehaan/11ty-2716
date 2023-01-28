@@ -1,0 +1,15 @@
+---
+title: PaGeS by publishedDate
+---
+
+<h1>{{ title }}</h1>
+
+{%- assign pages_by_published_date = collections.pages | sort: "data.publishedDate" -%}
+
+{% for p in pages_by_published_date reversed %}
+<article>
+  <h2>{{ p.data.title }}</h2>
+  <!-- <p>page date: {% time p.data.page.date %}</p> -->
+  <p>publish date: {% time p.data.publishedDate %}</p>
+</article>
+{% endfor %}

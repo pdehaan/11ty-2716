@@ -8,6 +8,14 @@ module.exports = function (eleventyConfig) {
     return [...pages];
   });
 
+  eleventyConfig.addFilter("inspect", require("node:util").inspect);
+  eleventyConfig.addFilter("iso_date", date => date.toISOString());
+
+  eleventyConfig.addShortcode("time", function (datetime = new Date()) {
+    const isoDateFn = eleventyConfig.getFilter("iso_date");
+    return `<time datetime="${isoDateFn(datetime)}">${datetime.toLocaleDateString()}</time>`;
+  });
+
   return {
     dir: {
       input: "src",

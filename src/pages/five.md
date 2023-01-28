@@ -5,5 +5,7 @@ publishedDate: 2022-05-15
 ---
 
 # {{ title }}
-{{ date }}
-{{ publishedDate }}
+
+{% time page.date %}
+
+{% time publishedDate %}
