@@ -1,0 +1,10 @@
+---
+title: PaGeS
+---
+
+<h1>{{ title }}</h1>
+{% for p in collections.huh %}
+  {{ p.data.title }}
+  {{ p.data.date }}
+  {{ p.page.date }}
+{% endfor %}
